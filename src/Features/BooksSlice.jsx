@@ -9,7 +9,7 @@ const initialBooks = {
 }
 const bookSlice = createSlice({
     name: 'books',
-    initialState:initialBooks,
+    initialState: initialBooks,
     reducers: {
         showBooks: (state) => state,
         addBook: (state, action) => {
@@ -19,12 +19,12 @@ const bookSlice = createSlice({
             const { id, author, title } = action.payload
             const isbookExist = state.books.find(book => book.id === id);
             if (isbookExist) {
-                isbookExist[0].title = title;
-                isbookExist[0].author = author;
+                isbookExist.title = title;
+                isbookExist.author = author;
             }
         },
         deleteBook: (state, action) => {
-            const { id } = action.payload;
+            const id = action.payload;
             state.books = state.books.filter(book => book.id !== id);
 
         }

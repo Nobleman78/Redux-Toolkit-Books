@@ -1,13 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { deleteBook } from './BooksSlice';
 
 const Showbooks = () => {
     const book = useSelector(state => state.books.books)
+    const dispatch = useDispatch()
+    const handleDeleteBook = (id) => {
+        dispatch(deleteBook(id))
+    }
 
     return (
-        <div>
+        <div className='px-14'>
             <Helmet>
                 <title>ShowBooks | BooksView</title>
             </Helmet>
@@ -29,10 +34,10 @@ const Showbooks = () => {
                                 <td className="px-6 py-4">{title}</td>
                                 <td className="px-6 py-4">{author}</td>
                                 <td className="px-6 py-4 space-x-2">
-                                    <Link to={`/edit-book/${id}`}>
+                                    <Link to='/edit-book' state={{ id, title, author }}>
                                         <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Edit</button>
                                     </Link>
-                                    <button className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">Delete</button>
+                                    <button onClick={() => handleDeleteBook(id)} className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">Delete</button>
                                 </td>
                             </tr>
                         ))

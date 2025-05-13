@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='px-14'>
             <Helmet>
                 <title>Footer | BooksView</title>
             </Helmet>
