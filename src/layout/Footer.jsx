@@ -7,7 +7,7 @@ const Footer = () => {
             <Helmet>
                 <title>Footer | BooksView</title>
             </Helmet>
-            <h2>Footer Page</h2>
+            <h2 className='mt-20 bg-gray-200 px-5 py-5'>Designed By Jesmin Chakma @2025</h2>
         </div>
     );
 };

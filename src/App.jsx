@@ -6,6 +6,7 @@ import Showbooks from './Features/Showbooks'
 import Addbook from './Features/Addbook'
 import Error from './pages/Error'
 import Editbook from './Features/Editbook'
+import Footer from './layout/Footer'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/edit-book' element={<Editbook/>} ></Route>
         <Route path='*' element={<Error/>} ></Route>
       </Routes>
+      <Footer/>
     </div>
   )
 }
